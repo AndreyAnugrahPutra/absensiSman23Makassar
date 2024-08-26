@@ -4,7 +4,6 @@ import siswaAPI from '@/api/siswaAPI';
 
 // import layout
 import SiswaLayout from '@/Layouts/SiswaLayout.vue'
-import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Toast from 'primevue/toast'
 
@@ -38,7 +37,6 @@ const fetchDataAbsen = async () =>
 
         if(data.api_data !== null)
         {
-            // dataAbsen.value = data.api_data
             dataAbsen.value = data.api_data.map((p, i) => ({ 
             waktuAbsenFix : formatTime(p.created_at),
             ...p}))
@@ -46,8 +44,6 @@ const fetchDataAbsen = async () =>
             notif('success','Menampilkan Data')
         }
         
-
-        console.log(data)
     }
     catch(err) {
         notif('error','Terjadi Kesalahan')
@@ -79,18 +75,6 @@ const formatTime = (timestamp) =>
     } else {
         return `${Math.round(days).toFixed(0)} hari yang lalu`;
     }
-
-//       if (diff < 60000) {
-//         return Math.floor(diff / 1000).toFixed(1) + ' detik yang lalu';
-//       } else if (diff < 3600000) {
-//         return Math.floor(diff / 60000).toFixed(1) + ' menit yang lalu';
-//       } else if (diff < 86400000) {
-//         return Math.floor(diff / 3600000).toFixed(1)
-//  + ' jam yang lalu';
-//       } else {
-//         return Math.floor(diff / 86400000).toFixed(1) + ' hari yang lalu'; 
-
-//       }
 }
 </script>
 

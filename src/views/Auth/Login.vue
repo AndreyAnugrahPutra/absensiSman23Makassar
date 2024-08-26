@@ -70,7 +70,6 @@ const login = async () =>
             }
            else
            {
-                console.log(data)
                 toastMessage.value = data.api_message
                 toastType.value = 'error'
            }
@@ -84,7 +83,7 @@ const login = async () =>
                 toastType.value = 'error'
             }
 
-            console.log(err)
+            console.error(err)
         }
         finally
         {

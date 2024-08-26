@@ -5,7 +5,6 @@ import API from '@/api/API';
 // import layout
 import OrtuLayout from '@/Layouts/OrtuLayout.vue'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Message from 'primevue/message'
@@ -51,8 +50,6 @@ const absenAnak = async () =>
             jumlahHadir.value = data.api_data[2]
             namaMapel.value = data.api_data[1][0].nama_mapel
             namaGuru.value = data.api_data[1][0].nama_guru
-
-            console.log(jumlahHadir.value)
         }
     }
     catch(err) { console.error(err)}

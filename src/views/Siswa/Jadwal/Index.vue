@@ -21,7 +21,7 @@ onMounted(()=>
 {
     isFetching.value = true
     getDayName(newDate)
-    // setWaktu(newDate)
+    setWaktu(newDate)
 
     setTimeout(()=>
     {
@@ -59,15 +59,12 @@ const getDayName = (newDate) =>
 {
     // let date = hariIni
     hariIni.value = newDate.toLocaleDateString("id-ID", { weekday: 'long' })
-
-    console.log(hariIni.value.toUpperCase())
 }
 
 const setWaktu = (newDate) =>
 {
     waktu = newDate.getHours()+':'+newDate.getMinutes()+':'+newDate.getSeconds()
 
-    console.log(waktu)
 }
 
 const request = {
@@ -118,7 +115,6 @@ const setIdJadwal = (idJadwal) =>
     {
         router.push({name : 'FormList'})
     },1000)
-    console.log(localStorage.id_jadwal)
 }
 
 const setIdHistory = (idJadwal) =>
@@ -129,7 +125,6 @@ const setIdHistory = (idJadwal) =>
     {
         router.push({name : 'HistoryList'})
     },1000)
-    console.log(localStorage.id_jadwal)
 }
 
 const fetchJadwal = async () =>
@@ -177,15 +172,11 @@ const fetchJadwal = async () =>
     finally
     {
         isFetching.value = false
-
-        console.log(dataJadwalFix.value)
-        console.log('Waktu Selesai : '+waktuAbsenSelesai.value)
     }
 }
 
 watch(selectedHari, () =>
 {
-    console.log('Hari dipilih : '+selectedHari.value)
     filterJadwal()
 })
 </script>

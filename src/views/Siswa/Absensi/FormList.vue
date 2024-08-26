@@ -34,11 +34,6 @@ const dataFormAbsen = ref([])
 
 const waktu = new Date()
 const waktuFix = waktu.getHours()+':'+waktu.getMinutes()+':'+waktu.getSeconds()
-// const waktu = '2024-08-08'
-
-
-// const waktuFix = '08:51:00'
-// const waktuFix = '08:30:00'
 
 const waktuAbsenSelesai = ref(false)
 const bisaHadir = ref(false)
@@ -66,7 +61,6 @@ const isLoading = ref(false)
 const uploadLampiran = (event) =>
 {
     formData.append('lampiran', event.files[0])
-    console.log(formData.get('lampiran'))
 
     toast.add({ severity: 'success', summary: 'Info', detail: 'Lampiran terupload!', life: 1000, group : 'tc1' });
 }
@@ -192,14 +186,6 @@ const validasiLokasi = (latSekolah,longSekolah,latUser,longUser) =>
         bisaHadir.value = false
         jarakLokasi.value = 'Lokasi anda : '+Math.round(distance*1000)+' M dari sekolah'
     }
-    // console.log('lokasi anda : '+Math.round(distance*1000)+' M dari sekolah')
-
-    // console.log(distance / 1000)
-    // console.log(radiusSekolah)
-    // console.log(distance*1000 / 1000 > radiusSekolah)
-    // console.log('Lokasi Absen Valid : '+lokasiValid.value)
-    // console.log('Bisa Absen : '+bisaHadir.value)
-    // console.log('Absen Selesai : '+waktuAbsenSelesai.value)
 } 
 
 const getLocation = () =>

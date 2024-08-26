@@ -5,7 +5,6 @@ import API from '@/api/API';
 // import layout
 import OrtuLayout from '@/Layouts/OrtuLayout.vue'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Message from 'primevue/message'
@@ -40,15 +39,12 @@ const fetchAnak = async () =>
                 index : i+1,
                 ...p
             }))
-
-            // console.log(dataJadwal.value)
         }
     }
     catch(err) { console.error(err)}
     finally
     {
         isLoading.value = false
-        console.log(localStorage.id_anak)
     }
 }
 
@@ -60,8 +56,6 @@ const getAbsen = (id_jadwal) =>
     {
         router.push({name : 'ortuAbsenAnak'})
     }, 1000)
-
-    console.log(localStorage.id_jadwal)
 }
 
 </script>
