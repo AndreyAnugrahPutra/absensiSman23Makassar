@@ -120,7 +120,7 @@ const  fetchLevel = async () =>
         loginLevel = data.api_data
     }
     catch(err) { 
-        toast.add({ severity: toastType, summary: 'Info', detail: err , life: 8000, styleClass : 'max-w-[22rem]', group : 'tc' });
+        toast.add({ severity: 'error', summary: 'Info', detail: err , life: 8000, styleClass : 'max-w-[22rem]', group : 'tc' });
         console.error(err) 
     }
     finally

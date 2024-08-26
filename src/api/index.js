@@ -8,8 +8,7 @@ axios.interceptors.request.use(
       return config;
   },
   error => {
-      return Promise.reject(error);   
-
+      return Promise.reject(error);
   }
 );
 
@@ -18,7 +17,6 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
   return axios.create({
     baseURL: url,
     withCredentials: true,
-    credentials : 'include',
     headers :
     {
         "Authorization" : `Bearer ${JWToken}`,
