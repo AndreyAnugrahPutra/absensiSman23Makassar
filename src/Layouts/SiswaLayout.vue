@@ -39,6 +39,7 @@ const firstLogin = () =>
         setTimeout(() =>
         {
             localStorage.removeItem('firstLogin')
+            refreshPage()
         },3000)
     }
 }

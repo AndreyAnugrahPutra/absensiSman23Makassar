@@ -12,7 +12,7 @@ import router from '@/router';
 
 onMounted(()=>
 {
-
+    setTimeout(() => fetchAnak() ,500)
     isLoading.value = true
     localStorage.removeItem('id_anak')
     localStorage.removeItem('id_kelas')
@@ -65,18 +65,6 @@ const setIdKelas = (id_kelas,id_anak) =>
         router.push({name : 'ortuJadwalAnak'})
 
     },1500)
-}
-
-if(localStorage.firstLogin)
-{     
-    setTimeout(()=>
-    {
-        fetchAnak()
-    },1000)
-}
-else
-{
-    fetchAnak()
 }
 
 </script>
