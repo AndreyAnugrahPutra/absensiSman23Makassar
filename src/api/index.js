@@ -21,8 +21,6 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
     headers :
     {
         "Authorization" : `Bearer ${JWToken}`,
-        'X-Requested-With': 'XMLHttpRequest',
-        "Access-Control-Allow-Origin" : '*'
     },
     timeout : 5000,
   })
