@@ -12,8 +12,8 @@ import router from '@/router';
 
 onMounted(()=>
 {
-    setTimeout(() => fetchAnak() ,500)
     isLoading.value = true
+    setTimeout(() => fetchAnak() ,500)
     localStorage.removeItem('id_anak')
     localStorage.removeItem('id_kelas')
     localStorage.removeItem('id_jadwal')

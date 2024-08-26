@@ -12,14 +12,10 @@ import Skeleton from 'primevue/skeleton'
 
 const pageProps = defineProps({ isLoading : Boolean })
 
-onMounted(()=>
+onMounted(() =>
 {
     setInterval(hariTanggal, 1000)
-
-    setTimeout(()=>
-    {
-        firstLogin()
-    },1600)
+    firstLogin()
 })
 
 
@@ -40,7 +36,7 @@ const firstLogin = () =>
         {
             localStorage.removeItem('firstLogin')
             refreshPage()
-        },1000)
+        },500)
     }
 }
 
