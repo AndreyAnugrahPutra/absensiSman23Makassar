@@ -2,7 +2,6 @@
 import {ref, onMounted} from 'vue'
 import router from '@/router'
 import axios from 'axios'
-
 import API from '@/api/API'
 
 import AppLogo from '@/components/AppLogo.vue'
@@ -108,6 +107,8 @@ const  fetchLevel = async () =>
 
     try
     {
+        await axios.get('https://happy-radically-racer.ngrok-free.app/sanctum/csrf-cookie')
+
         const response = await API.loginPage()
 
         const data = response.data.data
