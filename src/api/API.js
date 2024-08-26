@@ -7,7 +7,8 @@ export default {
     },
     loginPage()
     {
-        return api().get('/fetchLevel')
+
+        return api().get('/sanctum/csrf-cookie'), api().get('/fetchLevel')
     },
     userLogin(form)
     {
