@@ -1,12 +1,5 @@
 import axios from 'axios'
 
-// const url = axios.defaults.baseURL = "http://127.0.0.1:8000/api/"
-
-// const api = axios.create({
-//   baseURL: url, // ganti dengan URL server Laravel Anda
-//   // withCredentials: true,
-// })
-
 const JWToken = localStorage.token
 
 axios.interceptors.request.use(
@@ -28,6 +21,7 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
     headers :
     {
         "Authorization" : `Bearer ${JWToken}`,
+        'X-Requested-With': 'XMLHttpRequest',
     },
     timeout : 5000,
   })
