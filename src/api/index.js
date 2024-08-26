@@ -18,6 +18,7 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
   return axios.create({
     baseURL: url,
     withCredentials: true,
+    credentials : 'include',
     headers :
     {
         "Authorization" : `Bearer ${JWToken}`,
