@@ -6,6 +6,7 @@ const JWToken = localStorage.token
 
 axios.interceptors.request.use(
   config => {
+      config.headers.common['X-CSRF-TOKEN'] = window.csrfToken;
       // config.headers.common['X-CSRF-TOKEN'] = csrfToken;
       config.headers.Authorization = `Bearer ${JWToken}`;
       return config;

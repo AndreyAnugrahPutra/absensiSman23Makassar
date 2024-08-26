@@ -107,11 +107,13 @@ const  fetchLevel = async () =>
 
     try
     {
-        await axios.get('https://happy-radically-racer.ngrok-free.app/sanctum/csrf-cookie')
+        // const csrfToken = await axios.get('https://happy-radically-racer.ngrok-free.app/sanctum/csrf-cookie')
 
         const response = await API.loginPage()
 
         const data = response.data.data
+
+        console.log(localStorage.csrfToken)
 
         if(!data.api_data)
         {
