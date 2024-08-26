@@ -20,7 +20,7 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
     headers :
     {
         "Authorization" : `Bearer ${JWToken}`,
-        "Access-Control-Allow-Origin" : 'https://happy-radically-racer.ngrok-free.app/api'
+        "Access-Control-Allow-Origin" : 'https://absensi-sman23makassar.netlify.app'
     },
     timeout : 5000,
   })
