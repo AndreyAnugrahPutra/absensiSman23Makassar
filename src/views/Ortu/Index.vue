@@ -72,7 +72,7 @@ if(localStorage.firstLogin)
     setTimeout(()=>
     {
         fetchAnak()
-    },5000)
+    },1000)
 }
 else
 {

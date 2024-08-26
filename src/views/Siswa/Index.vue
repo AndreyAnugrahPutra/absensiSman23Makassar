@@ -8,11 +8,19 @@ import Card from 'primevue/card'
 
 onMounted(() => 
 {
-    fetchTahunAjar()
+    
 })
 
 const isLoading = ref(false)
 const dataTahunAjar = ref([])
+
+if(localStorage.firstLogin)
+{
+    setTimeout( () => 
+    {
+        fetchTahunAjar()
+    },1000)
+}
 
 const fetchTahunAjar = async () =>
 {
