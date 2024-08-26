@@ -7,7 +7,6 @@ export default {
     },
     loginPage()
     {
-
         return api().get('/fetchLevel')
     },
     userLogin(form)
