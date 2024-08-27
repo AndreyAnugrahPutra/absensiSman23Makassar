@@ -3,8 +3,6 @@ import {ref, onMounted} from 'vue'
 import router from '@/router'
 import API from '@/api/API'
 
-import axios from 'axios'
-
 import AppLogo from '@/components/AppLogo.vue'
 
 import InputText from 'primevue/inputtext'
@@ -15,7 +13,7 @@ import Toast from 'primevue/toast'
 
 import { useToast } from 'primevue/usetoast'
 
-onMounted(()=>
+onMounted( () =>
 {
     fetchLevel()
     redirectPage()
@@ -112,7 +110,6 @@ const  fetchLevel = async () =>
 
         const data = response.data.data
 
-        // console.log(response.data)  //is return html 
         if(!data.api_data)
         {
             fetchLevel()
@@ -120,7 +117,8 @@ const  fetchLevel = async () =>
         loginLevel = data.api_data
     }
     catch(err) { 
-        toast.add({ severity: 'error', summary: 'Info', detail: err , life: 5000, styleClass : 'max-w-[22rem]', group : 'tc' });
+        fetchLevel()
+        // toast.add({ severity: 'error', summary: 'Info', detail: err , life: 5000, styleClass : 'max-w-[22rem]', group : 'tc' });
         console.error(err) 
     }
     finally
