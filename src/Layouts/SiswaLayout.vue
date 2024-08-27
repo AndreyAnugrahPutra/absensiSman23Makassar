@@ -40,7 +40,7 @@ const firstLogin = () =>
         {
             localStorage.removeItem('firstLogin')
             refreshPage()
-        },3000)
+        },500)
     }
 }
 
