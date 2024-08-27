@@ -35,10 +35,10 @@ const isFetching = ref(false)
 const newDate = new Date()
 
 // let hariIni = ''
-const hariIni = ref('Senin')
-// const waktu = ref(null)
+const hariIni = ref(null)
+const waktu = ref(null)
 // let waktu = null
-const waktu = '08:30:00'
+// const waktu = '08:30:00'
 
 const waktuAbsenSelesai = ref(false)
 
@@ -63,7 +63,7 @@ const getDayName = (newDate) =>
 
 const setWaktu = (newDate) =>
 {
-    waktu = newDate.getHours()+':'+newDate.getMinutes()+':'+newDate.getSeconds()
+    waktu.value = newDate.getHours()+':'+newDate.getMinutes()+':'+newDate.getSeconds()
 
 }
 

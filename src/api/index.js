@@ -24,7 +24,7 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
       {
           "Authorization" : `Bearer ${JWToken}`,
       },
-      timeout : 5000,
+      timeout : 10000,
       // withXSRFToken : true,
     })
 };
