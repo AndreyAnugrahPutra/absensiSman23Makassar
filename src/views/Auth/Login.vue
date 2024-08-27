@@ -3,6 +3,8 @@ import {ref, onMounted} from 'vue'
 import router from '@/router'
 import API from '@/api/API'
 
+import axios from 'axios'
+
 import AppLogo from '@/components/AppLogo.vue'
 
 import InputText from 'primevue/inputtext'
@@ -117,7 +119,7 @@ const  fetchLevel = async () =>
         loginLevel = data.api_data
     }
     catch(err) { 
-        toast.add({ severity: 'error', summary: 'Info', detail: err , life: 8000, styleClass : 'max-w-[22rem]', group : 'tc' });
+        toast.add({ severity: 'error', summary: 'Info', detail: err , life: 5000, styleClass : 'max-w-[22rem]', group : 'tc' });
         console.error(err) 
     }
     finally

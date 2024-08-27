@@ -6,7 +6,6 @@ const JWToken = localStorage.token
 
 axios.interceptors.request.use(
   config => {
-      axios.defaults.headers.common['X-CSRF-TOKEN'] = window.csrfToken;
       // config.headers.common['X-CSRF-TOKEN'] = csrfToken;
       config.headers.Authorization = `Bearer ${JWToken}`;
       return config;
@@ -20,11 +19,12 @@ export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
   // export default(url = 'http://127.0.0.1:8000/api') => {
   return axios.create({
       baseURL: url,
-      withCredentials: true,
+      withCredentials: false,
       headers :
       {
           "Authorization" : `Bearer ${JWToken}`,
       },
       timeout : 5000,
+      // withXSRFToken : true,
     })
 };
