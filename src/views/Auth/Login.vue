@@ -15,7 +15,11 @@ import { useToast } from 'primevue/usetoast'
 
 onMounted( () =>
 {
-    fetchLevel()
+    setTimeout(() => {
+    isLoading.value = true
+    fetchLevel()}, 
+    500)
+    // fetchLevel()
     redirectPage()
 })
 
@@ -117,7 +121,6 @@ const  fetchLevel = async () =>
         loginLevel = data.api_data
     }
     catch(err) { 
-        fetchLevel()
         // toast.add({ severity: 'error', summary: 'Info', detail: err , life: 5000, styleClass : 'max-w-[22rem]', group : 'tc' });
         console.error(err) 
     }
@@ -154,7 +157,7 @@ const redirectPage = () =>
 </script>
 
 <template>
-    <section class="min-h-screen w-full p-[4rem] flex flex-col gap-8 place-items-center">
+    <section class="min-h-screen w-full p-[4rem] flex flex-col gap-8 place-items-center" v-if="!isLoading">
         <AppLogo class="size-20" />
         <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc"/>
         <h1>SILAHKAN LOGIN</h1>
