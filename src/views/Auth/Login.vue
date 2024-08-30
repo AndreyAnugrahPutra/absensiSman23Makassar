@@ -155,7 +155,7 @@ const redirectPage = () =>
 </script>
 
 <template>
-    <section class="min-h-screen w-full p-[4rem] flex flex-col gap-8 place-items-center" v-if="!isLoading">
+    <section class="min-h-screen w-full p-[4rem] flex flex-col gap-8 place-items-center">
         <AppLogo class="size-20" />
         <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc"/>
         <h1>SILAHKAN LOGIN</h1>
