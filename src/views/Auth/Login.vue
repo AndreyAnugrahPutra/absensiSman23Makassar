@@ -67,12 +67,14 @@ const login = async () =>
                 localStorage.setItem('firstLogin', true)
                 toastMessage.value = data.api_message
                 toastType.value = 'success'
+                notif()
                 
             }
             else
             {
                     toastMessage.value = data.api_message
                     toastType.value = 'error'
+                    notif()
             }
 
         }
@@ -82,6 +84,7 @@ const login = async () =>
             {
                 toastMessage.value = 'Gagal Login! Silahkan coba lagi beberapa saat'
                 toastType.value = 'error'
+                notif()
             }
 
             console.error(err)
