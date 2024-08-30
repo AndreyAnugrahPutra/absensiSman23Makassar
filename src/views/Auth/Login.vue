@@ -31,6 +31,8 @@ let loginLevel = ref()
 
 const isLoading = ref(false)
 
+const disabledButton = ref(false)
+
 
 const notif = () =>
 {
@@ -72,6 +74,7 @@ const login = async () =>
             else
             {
                 toast.add({ severity: 'error', summary: 'Info', detail: data.api_message , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
+                disabledButton.value = true
             }
 
         }
@@ -171,7 +174,7 @@ const redirectPage = () =>
                 <label for="level">LEVEL</label>
                 <Select :disabled="isLoading" id="level" v-model="form.level" :options="loginLevel" option-value="id_level" option-label="nama_level" placeholder="Pilih Level Akses"   />
             </div>
-            <Button label="LOGIN" @click="login" :disabled="isLoading" icon="pi pi-sign-in" :loading="isLoading" icon-pos="right"/>
+            <Button label="LOGIN" @click="login" :disabled="isLoading || disabledButton" icon="pi pi-sign-in" :loading="isLoading" icon-pos="right"/>
        </form>
     </section>
 </template>
