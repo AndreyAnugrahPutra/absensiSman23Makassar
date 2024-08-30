@@ -66,16 +66,12 @@ const login = async () =>
                 localStorage.setItem('kelas', data.api_data.kelas)
                 localStorage.setItem('isLoggedin', true)
                 localStorage.setItem('firstLogin', true)
-                toastMessage.value = data.api_message
-                toastType.value = 'success'
-                notif()
+                toast.add({ severity: 'success', summary: 'Info', detail: data.api_message , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
                 
             }
             else
             {
-                    toastMessage.value = data.api_message
-                    toastType.value = 'error'
-                    notif()
+                toast.add({ severity: 'error', summary: 'Info', detail: data.api_message , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
             }
 
         }
@@ -83,16 +79,14 @@ const login = async () =>
         { 
             if(err)
             {
-                toastMessage.value = 'Gagal Login! Silahkan coba lagi beberapa saat'
-                toastType.value = 'error'
-                notif()
+                toast.add({ severity: 'error', summary: 'Info', detail: 'Gagal Login! Silahkan coba lagi beberapa saat', life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
             }
 
             console.error(err)
         }
         finally
         {
-            notif()
+            toast.add({ severity: 'success', summary: 'Info', detail: 'berhasil login!' , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
             isLoading.value = false
             setTimeout(() => {
                 redirectPage()
