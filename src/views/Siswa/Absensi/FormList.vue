@@ -227,7 +227,7 @@ const getLocation = () =>
 </script>
 
 <template>
-    <SiswaLayout :isLoading="isLoading">
+    <SiswaLayout :isRefresh="isLoading">
         <template #pageContent>
             <section class="min-h-screen flex flex-col gap-y-8 p-2">
                 <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc1" />

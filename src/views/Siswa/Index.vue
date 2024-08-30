@@ -39,7 +39,7 @@ const fetchTahunAjar = async () =>
 </script>
 
 <template>
-    <SiswaLayout :isLoading="isLoading">
+    <SiswaLayout :isRefresh="isLoading">
         <template #pageContent>
             <section class="min-h-screen flex flex-col gap-y-8 p-2">
                 <Card class="rounded-lg p-4 text-sm border overflow-hidden shadow" unstyled v-if="dataTahunAjar">

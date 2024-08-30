@@ -68,7 +68,7 @@ const formatDate = (date) =>
 </script>
 
 <template>
-    <SiswaLayout :is-loading="isLoading">
+    <SiswaLayout :isRefresh="isLoading">
         <template #pageContent>
             <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc" />
             <section class="min-h-[75vh] p-2 flex flex-col gap-y-2">
