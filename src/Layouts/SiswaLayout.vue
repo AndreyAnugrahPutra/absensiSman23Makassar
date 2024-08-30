@@ -16,11 +16,7 @@ const pageProps = defineProps({ isLoading : Boolean })
 onMounted(()=>
 {
     setInterval(hariTanggal, 1000)
-
-    setTimeout(()=>
-    {
-        firstLogin()
-    },1600)
+    firstLogin()
 })
 
 
@@ -32,14 +28,16 @@ const nama = localStorage.nama
 
 const firstLogin = () =>
 {
+    isRefresh.value = true
+    
     if(localStorage.firstLogin == 'true')
     {
         toast.add({ severity: 'info', summary: 'Info', detail: `Selamat Datang, ${nama}!` , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc1'})
 
         setTimeout(() =>
         {
-            localStorage.removeItem('firstLogin')
             refreshPage()
+            localStorage.removeItem('firstLogin')
         },500)
     }
 }
