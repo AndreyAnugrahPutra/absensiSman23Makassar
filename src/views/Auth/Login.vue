@@ -56,7 +56,7 @@ const login = async () =>
 
             const data = response.data.data
 
-            if(data.api_data !== null)
+            if(data.api_data)
             {     
                 localStorage.setItem('token', data.api_data.token)
                 localStorage.setItem('nama', data.api_data.nama)
@@ -69,11 +69,11 @@ const login = async () =>
                 toastType.value = 'success'
                 
             }
-           else
-           {
-                toastMessage.value = data.api_message
-                toastType.value = 'error'
-           }
+            else
+            {
+                    toastMessage.value = data.api_message
+                    toastType.value = 'error'
+            }
 
         }
         catch(err) 
