@@ -86,7 +86,6 @@ const login = async () =>
         }
         finally
         {
-            toast.add({ severity: 'success', summary: 'Info', detail: 'berhasil login!' , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
             isLoading.value = false
             setTimeout(() => {
                 redirectPage()
