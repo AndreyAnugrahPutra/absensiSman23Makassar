@@ -182,7 +182,7 @@ watch(selectedHari, () =>
 </script>
 
 <template>
-    <SiswaLayout :isLoading="isFetching">
+    <SiswaLayout :isRefresh="isFetching">
         <template #pageContent>
             <section class="min-h-screen">
                 <Select v-model="selectedHari" :options="dataHari" optionLabel="hari" optionValue="hari"placeholder="Filter Hari" class="w-full md:w-56" />
@@ -201,7 +201,7 @@ watch(selectedHari, () =>
                                 <span>Mata Pelajaran : {{ jadwal.nama_mapel }}</span>
                                 <span>Guru : {{ jadwal.nama_guru }}</span>
                                 
-                                <Button :disabled="!jadwal.valid" size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" />
+                                <Button size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" />
                                 
                                 <!-- <Button :disabled="!jadwal.valid" size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" /> -->
 
