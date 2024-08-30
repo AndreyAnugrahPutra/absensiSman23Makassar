@@ -17,9 +17,8 @@ onMounted( () =>
 {
     setTimeout(() => {
     isLoading.value = true
-    fetchLevel()}, 
-    500)
-    // fetchLevel()
+    fetchLevel()
+    },500)
     redirectPage()
 })
 
@@ -35,7 +34,7 @@ const isLoading = ref(false)
 
 const notif = () =>
 {
-    toast.add({ severity: toastType, summary: 'Info', detail: toastMessage , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
+    toast.add({ severity: toastType.value, summary: 'Info', detail: toastMessage.value , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc' });
 }
 
 let form = ref({
