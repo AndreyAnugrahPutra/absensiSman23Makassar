@@ -81,21 +81,11 @@ const filterJadwal = async () =>
         const response = await siswaAPI.fetchJadwalByHari(selectedHari.value,request)
 
         const data = response.data.data
-
-        const absenValid = ref(false)
         
-        if(data.api_data.some(jadwal => waktu >= jadwal.waktu_mulai && waktu <= jadwal.waktu_selesai))
-        {
-            absenValid.value = true
-        }
-        else
-        {
-            absenValid.value = false
-            waktuAbsenSelesai.value = true
-        }
         dataJadwalFix.value = data.api_data.map((p, i) => ({ 
-            index : i+1,
-            valid : absenValid.value, ...p}))
+            index : i+1, 
+            valid : hariIni.value === p.hari && waktu.value >= p.waktu_mulai && waktu.value <= p.waktu_selesai, 
+            ...p}))
 
     }
     catch(err) {
@@ -137,22 +127,10 @@ const fetchJadwal = async () =>
         const response = await siswaAPI.fetchJadwal(request)
 
         const data = response.data.data
-
-        const absenValid = ref(false)
-        
-        if(data.api_data.some(jadwal => waktu >= jadwal.waktu_mulai && waktu <= jadwal.waktu_selesai))
-        {
-            absenValid.value = true
-        }
-        else
-        {
-            absenValid.value = false
-            waktuAbsenSelesai.value = true
-        }
         dataJadwalFix.value = data.api_data.map((p, i) => ({ 
             index : i+1, 
-            label : `${p.mulai}/${p.selesai}`,
-            valid : absenValid.value, ...p}))
+            valid : hariIni.value === p.hari && waktu.value >= p.waktu_mulai && waktu.value <= p.waktu_selesai, 
+            ...p}))
 
     }
     catch(err) {
@@ -182,7 +160,7 @@ watch(selectedHari, () =>
 </script>
 
 <template>
-    <SiswaLayout :isRefresh="isFetching">
+    <SiswaLayout :isLoading="isFetching">
         <template #pageContent>
             <section class="min-h-screen">
                 <Select v-model="selectedHari" :options="dataHari" optionLabel="hari" optionValue="hari"placeholder="Filter Hari" class="w-full md:w-56" />
@@ -201,11 +179,9 @@ watch(selectedHari, () =>
                                 <span>Mata Pelajaran : {{ jadwal.nama_mapel }}</span>
                                 <span>Guru : {{ jadwal.nama_guru }}</span>
                                 
-                                <Button size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" />
-                                
-                                <!-- <Button :disabled="!jadwal.valid" size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" /> -->
+                                <Button :disabled="!jadwal.valid" size="small" severity="info" label="FORM ABSEN" icon="pi pi-file-check" iconPos="right" @click="setIdJadwal(jadwal.id_jadwal)" />
 
-                                <Button size="small" severity="primary" label="RIWAYAT ABSEN" icon="pi pi-history" @click="setIdHistory(jadwal.id_jadwal)" />
+                                <Button  size="small" severity="primary" label="RIWAYAT ABSEN" icon="pi pi-history" @click="setIdHistory(jadwal.id_jadwal)" />
                             </div>
                         </template>
                     </Card>

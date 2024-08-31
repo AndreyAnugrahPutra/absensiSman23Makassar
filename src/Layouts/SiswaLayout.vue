@@ -40,12 +40,14 @@ const firstLogin = () =>
             localStorage.removeItem('firstLogin')
         },500)
     }
+    isRefresh.value = false
 }
 
 const refreshPage = () => 
 {
     isRefresh.value = true
     router.go()
+    // isRefresh.value = false
     setTimeout(() => isRefresh.value = false, 1000)
 }
 

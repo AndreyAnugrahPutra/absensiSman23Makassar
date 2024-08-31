@@ -79,7 +79,7 @@ const formatTime = (timestamp) =>
 </script>
 
 <template>
-    <SiswaLayout :isRefresh="isFetching">
+    <SiswaLayout :isLoading="isFetching">
         <template #pageContent>
             <Toast class="w-[100%]" position="top-center" group="tc"/>
             <section class="min-h-screen p-2">

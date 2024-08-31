@@ -13,9 +13,9 @@ export default {
     {
         return api().post(`/jadwal/kelas/${Hari}`,nama_kelas)
     },
-    fetchDaftarAbsen(idJadwal)
+    fetchDaftarAbsen(idJadwal, emailSiswa)
     {
-        return api().get('/absen/daftar_absen/'+idJadwal)
+        return api().post('/absen/daftar_absen/'+idJadwal, emailSiswa)
     },
     submitAbsensi(id_form, formData)
     {

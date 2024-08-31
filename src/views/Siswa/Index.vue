@@ -8,6 +8,7 @@ import Card from 'primevue/card'
 
 onMounted(() => 
 {
+    isLoading.value = true
     setTimeout(() => fetchTahunAjar(), 500)
 })
 
@@ -33,13 +34,14 @@ const fetchTahunAjar = async () =>
     finally
     {
         isLoading.value = false
+        console.log(isLoading.value)
     }
 }
 
 </script>
 
 <template>
-    <SiswaLayout :isRefresh="isLoading">
+    <SiswaLayout :isLoading="isLoading">
         <template #pageContent>
             <section class="min-h-screen flex flex-col gap-y-8 p-2">
                 <Card class="rounded-lg p-4 text-sm border overflow-hidden shadow" unstyled v-if="dataTahunAjar">

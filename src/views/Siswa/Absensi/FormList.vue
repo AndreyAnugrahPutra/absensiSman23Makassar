@@ -26,6 +26,8 @@ onMounted(() =>
     fetchFormList()
 })
 
+const api_message = ref(null)
+
 const toast = useToast()
 
 const initialMap = shallowRef(null)
@@ -110,9 +112,14 @@ const fetchFormList = async () =>
 
     try 
     {
-        const response = await siswaAPI.fetchDaftarAbsen(localStorage.id_jadwal)
+        const reqData = { email : localStorage.email}
+        const response = await siswaAPI.fetchDaftarAbsen(
+            localStorage.id_jadwal, reqData
+        )
 
         const data = response.data.data
+
+        console.log(data)
 
         if(data?.api_data !== null)
         {
@@ -122,6 +129,10 @@ const fetchFormList = async () =>
             {
                 getLocation()
             }, 2500)
+        }
+        else
+        {
+            api_message.value = data.api_message
         }
 
         if(waktuFix >= dataFormAbsen?.value[0]?.waktu_mulai && waktuFix <= dataFormAbsen?.value[0]?.waktu_selesai)
@@ -227,11 +238,12 @@ const getLocation = () =>
 </script>
 
 <template>
-    <SiswaLayout :isRefresh="isLoading">
+    <SiswaLayout :isLoading="isLoading">
         <template #pageContent>
             <section class="min-h-screen flex flex-col gap-y-8 p-2">
                 <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc1" />
                 <Button size="small" icon="pi pi-arrow-left" @click="router.back()"/>
+                <Message severity="success" class="mt-2">Silahkan absen</Message>
                 <div id="map" style="height:50vh;" v-if="dataFormAbsen.length > 0"></div>
 
                 <span>{{ jarakLokasi }}</span>
@@ -288,7 +300,7 @@ const getLocation = () =>
                         </Card>
                     </form>
                 </div>
-                <Message severity="secondary" class="mt-2" v-else>Form Absen Belum dibuat</Message>    
+                <Message severity="secondary" class="mt-2" v-else>{{ api_message }}</Message>    
             </section>   
         </template>
     </SiswaLayout>
