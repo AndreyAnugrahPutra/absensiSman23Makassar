@@ -69,9 +69,6 @@ const getAbsen = (id_jadwal) =>
                     <template #header>
                         <Button icon="pi pi-arrow-left" size="small" @click="router.push({name : 'ortuDashboard'})" />
                     </template>
-                    <template #groupheader="{data}">
-                        <span class="font-semibold">Hari : {{ data.hari }}</span>
-                    </template>
                     <template #empty>
                         <Message severity="secondary">Tidak ada data jadwal</Message> 
                     </template>
