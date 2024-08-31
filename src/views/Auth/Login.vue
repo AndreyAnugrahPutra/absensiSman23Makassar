@@ -57,8 +57,6 @@ const login = async () =>
 
             const data = response.data.data
 
-            console.log(data)
-
             if(data.api_data)
             {     
                 localStorage.setItem('token', data.api_data.token)
