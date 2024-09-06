@@ -100,11 +100,6 @@ const formatDate = (date) =>
                         <span class="text-gray-400" v-else>Tidak ada lampiran</span>
                         </template>
                     </Column>
-                    <template #groupfooter="{data}">
-                        <div class="flex items-center gap-2">
-                            <span class="font-semibold">Tanggal Absen : {{ data.tanggal_absen }} </span>
-                        </div>
-                    </template>
                 </DataTable>
             </section>
         </template>
