@@ -35,7 +35,8 @@ const initialMap = shallowRef(null)
 const dataFormAbsen = ref([])
 
 const waktu = new Date()
-const waktuFix = waktu.getHours()+':'+waktu.getMinutes()+':'+waktu.getSeconds()
+// const waktuFix = waktu.getHours()+':'+waktu.getMinutes()+':'+waktu.getSeconds()
+const waktuFix = '10:41:00'
 
 const waktuAbsenSelesai = ref(false)
 const bisaHadir = ref(false)
