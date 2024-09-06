@@ -85,14 +85,20 @@ const formatDate = (date) =>
                         <Message severity="secondary">Tidak ada data absensi</Message> 
                     </template>
                     <Column header="No" field="index" class="w-[40px]"/>
+                    <Column header="Tanggal Absen" field="created_at" class="w-[120px]"/>
                     <Column header="Waktu Absen" field="waktu_absen" class="w-[120px]"/>
                     <Column header="Status" field="status"/>
-                    <Column header="Deskripsi" field="deskripsi"/>
+                    <Column header="Deskripsi">
+                        <template #body="{data}">
+                        <span class="text-gray-400" v-if="data.deskripsi">{{ data.deskripsi }}</span>
+                        <span class="text-gray-400" v-else>{{ data.status }}</span>
+                        </template>
+                    </Column>
                     <Column header="Lampiran">
                         <template #body="{data}">
                         <Button label="Lihat Lampiran" severity="help" size="small" icon="pi pi-eye" iconPos="right" target="_blank" v-if="data.lampiran_path" as="a" :href="data.lampiran_path"/>
                         <span class="text-gray-400" v-else>Tidak ada lampiran</span>
-                    </template>
+                        </template>
                     </Column>
                     <template #groupfooter="{data}">
                         <div class="flex items-center gap-2">
