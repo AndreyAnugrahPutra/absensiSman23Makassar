@@ -26,7 +26,7 @@ const isLoading = ref(false)
 const toastMessage = ref(null)
 const toastType = ref(null)
 
-const currentRoute = router.currentRoute.value.name
+// const currentRoute = router.currentRoute.value.name
 
 const notif = () =>
 {
@@ -85,8 +85,6 @@ const logout = async () =>
         }, 2500)
     }
 }
-
-console.log(currentRoute)
 
 </script>
 

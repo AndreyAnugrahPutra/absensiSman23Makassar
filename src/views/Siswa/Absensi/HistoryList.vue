@@ -22,6 +22,7 @@ const toast = useToast()
 const isLoading = ref(false)
 
 const dataAbsensi = ref([])
+const jumlahHadir = ref()
 
 const mapel = ref()
 const guru = ref()
@@ -44,12 +45,13 @@ const fetchHistoryAbsen = async () =>
         }
         else 
         {
-            dataAbsensi.value = data?.api_data?.map((p, i) => ({ 
+            dataAbsensi.value = data?.api_data[0]?.map((p, i) => ({ 
                 index : i+1, 
                 tanggal_absen : `${formatDate(p.created_at)}`,
                 ...p}))
-            mapel.value = dataAbsensi?.value[0]?.nama_mapel
-            guru.value = dataAbsensi?.value[0]?.nama_guru
+            mapel.value = dataAbsensi?.value[0]?.mapel
+            guru.value = dataAbsensi?.value[0]?.guru
+            jumlahHadir.value = data.api_data[1]
         }
     }
     catch(err) { console.error(err) }
@@ -85,7 +87,7 @@ const formatDate = (date) =>
                         <Message severity="secondary">Tidak ada data absensi</Message> 
                     </template>
                     <Column header="No" field="index" class="w-[40px]"/>
-                    <Column header="Tanggal Absen" field="created_at" class="w-[120px]"/>
+                    <Column header="Tanggal Absen" field="created_at" class="w-[200px]"/>
                     <Column header="Waktu Absen" field="waktu_absen" class="w-[120px]"/>
                     <Column header="Status" field="status"/>
                     <Column header="Deskripsi">
@@ -100,6 +102,11 @@ const formatDate = (date) =>
                         <span class="text-gray-400" v-else>Tidak ada lampiran</span>
                         </template>
                     </Column>
+                    <template #footer>
+                        <div class="flex flex-col gap-y-2 font-semibold" v-for="statusAbsen in jumlahHadir" :key="statusAbsen">
+                            <span>{{ statusAbsen.Status+' : '+statusAbsen.Jumlah }}</span>
+                        </div>
+                    </template>
                 </DataTable>
             </section>
         </template>

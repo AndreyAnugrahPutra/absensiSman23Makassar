@@ -51,6 +51,7 @@ const absenAnak = async () =>
             namaMapel.value = data.api_data[1][0].nama_mapel
             namaGuru.value = data.api_data[1][0].nama_guru
         }
+
     }
     catch(err) { console.error(err)}
     finally
@@ -73,18 +74,21 @@ const absenAnak = async () =>
                             <Button icon="pi pi-arrow-left" size="small" @click="router.back()" />
                             <span class="font-semibold">Mata Pelajaran : {{ namaMapel }}</span>
                             <span class="font-semibold">Guru : {{ namaGuru }}</span>
-                            <div class="flex flex-col gap-y-2 font-semibold" v-for="statusAbsen in jumlahHadir" :key="statusAbsen.index">
-                            <span>{{ statusAbsen.status+' : '+statusAbsen.jumlah }}</span>
-                        </div>
                         </div>
                     </template>
                     <template #empty>
                         <Message severity="secondary">Tidak ada data absen</Message> 
                     </template>
                     <Column header="No" field="index" class="w-[20px]"/>
+                    <Column header="Tanggal Absen" field="created_at" class="w-fit"/>
                     <Column header="Nama" field="nama_siswa" class="w-fit"/>
                     <Column header="Status" field="status" class="w-fit"/>
                     <Column header="Waktu Absen" field="waktu_absen"/>
+                    <template #footer>
+                        <div class="flex flex-col gap-y-2 font-semibold" v-for="statusAbsen in jumlahHadir" :key="statusAbsen">
+                            <span>{{ statusAbsen.Status+' : '+statusAbsen.Jumlah }}</span>
+                        </div>
+                    </template>
                 </DataTable>
             </section>   
         </template>
