@@ -119,8 +119,6 @@ const fetchFormList = async () =>
 
         const data = response.data.data
 
-        console.log(data)
-
         if(data?.api_data !== null)
         {
             dataFormAbsen.value = data.api_data
@@ -243,7 +241,7 @@ const getLocation = () =>
             <section class="min-h-screen flex flex-col gap-y-8 p-2">
                 <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc1" />
                 <Button size="small" icon="pi pi-arrow-left" @click="router.back()"/>
-                <Message severity="success" class="mt-2" v-if="dataFormAbsen">Silahkan absen</Message>
+                <Message severity="success" class="mt-2" v-if="dataFormAbsen.length > 0">Silahkan absen</Message>
                 <div id="map" style="height:50vh;" v-if="dataFormAbsen.length > 0"></div>
 
                 <span>{{ jarakLokasi }}</span>
