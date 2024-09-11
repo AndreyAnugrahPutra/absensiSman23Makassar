@@ -30,7 +30,7 @@ const currentRoute = router.currentRoute.value.name
 
 const notif = () =>
 {
-    toast.add({ severity: toastType, summary: 'Info', detail: toastMessage , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc1' });
+    toast.add({ severity: toastType, summary: 'Info', detail: toastMessage , life: 2000, styleClass : 'max-w-[22rem]', group : 'tc10' });
 }
 
 const form = {
@@ -92,7 +92,7 @@ const logout = async () =>
 
 <template>
     <div class="max-h-[4rem] h-[4rem] justify-between text-sm bg-sky-500 p-4 w-full flex items-center text-gray-700 mb-2 rounded-lg">
-        <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc1"/>
+        <Toast class="w-[100%] ml-6 md:ml-0" position="top-center" group="tc10"/>
         <!-- <ConfirmDialog class="w-[24rem]" /> -->
         <ConfirmDialog group="headless" class="w-[24rem] p-4">
             <template #container="{message,acceptCallback, rejectCallback}">

@@ -15,7 +15,6 @@ axios.interceptors.request.use(
   }
 );
 
-// export default(url = 'https://happy-radically-racer.ngrok-free.app/api') => {
 export default(url = 'https://absensi-sman23makassar.online/api') => {
   // export default(url = 'http://127.0.0.1:8000/api') => {
   return axios.create({
@@ -26,6 +25,5 @@ export default(url = 'https://absensi-sman23makassar.online/api') => {
           "Authorization" : `Bearer ${JWToken}`,
       },
       timeout : 10000,
-      // withXSRFToken : true,
     })
 };
